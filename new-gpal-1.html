@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ابدأ رحلتك – حصالة</title>
+
+  <!-- أيقونات وخطوط -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background-color: #FDF1ED; /* الخلفية الرئيسية */
+      max-width: 430px;
+      margin-inline: auto;
+      overflow-x: hidden;
+      color: #0D1C2E; /* اللون الرئيسي للنص */
+    }
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* زر الرجوع */
+    .back-btn {
+      align-self: flex-start;
+      font-size: 20px;
+      color: #0D1C2E;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+
+    /* النص الرئيسي */
+    .main-text {
+      font-size: 22px;
+      color: #0D1C2E;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    /* الصورة */
+    .illustration img {
+      width: 200px;
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* الأزرار */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      background-color: #0D1C2E; /* أزرق داكن */
+      color: white;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 3px 6px rgba(13, 28, 46, 0.4);
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #14293D; /* درجة أفتح شوية عند المرور */
+      box-shadow: 0 6px 12px rgba(20, 41, 61, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+
+    <!-- 🔙 زر العودة -->
+    <a href="goal.html" class="back-btn" title="العودة">
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+    <!-- 📝 النص الرئيسي -->
+    <div class="main-text">ادخارك ينتظر هدفك الأول</div>
+
+    <!-- 🖼️ الصورة -->
+    <div class="illustration">
+      <img src="ggg.png" alt="حصالة" />
+    </div>
+
+    <!-- ✅ الأزرار -->
+    <div class="buttons-container">
+      <button class="btn" onclick="window.location.href='enter-goal.html'">ادخار لهدف محدد</button>
+      <button class="btn" onclick="window.location.href='new-gpal-3.html'">ادخار</button>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head >
+  <link rel="stylesheet" href="style.css" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>أهدافك – حصالة</title>
+
+  <!-- Font Awesome + Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+
+
+</head>
+<body>
+
+  <div class="decorative-bg"></div>
+
+  <div class="container---1">
+    <div class="container-11">
+      <p>مازلت تفكر؟</p>
+      <p>دع الادخار يصنع لك الأمد</p>
+    </div>
+
+    <div class="goals-empty">
+      <button class="add-goal-btn" onclick="goToGoalPage()">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="goal-card" id="goalsList"></div>
+      <p class="empty-text" id="emptyText">أضف هدفك الأول!</p>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+  <a href="index.html"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
+  <a href="analysis.html"><i class="fa-solid fa-chart-line"></i><span>التحليل</span></a>
+  <a href="goal.html" class="active"><i class="fa-solid fa-bullseye"></i><span>أهدافي</span></a>
+  <a href="profile.html"><i class="fa-solid fa-user"></i><span>ملفي</span></a>
+</div>
+
+
+  <script>
+    function goToGoalPage() {
+      window.location.href = "new-gpal-1.html";
+    }
+
+   
+
+    function loadGoals() {
+      const list = document.getElementById("goalsList");
+      const emptyHint = document.getElementById("emptyText");
+      const goals = JSON.parse(localStorage.getItem("goals") || "[]");
+
+      if (goals.length === 0) {
+        list.innerHTML = "";
+        emptyHint.style.display = "";
+        return;
+      }
+
+      emptyHint.style.display = "none";
+
+      list.innerHTML = goals.map((goal, index) => {
+        const saved = Number(goal.saved) || 0;
+        const target = Number(goal.amount);
+
+        let percentage = 0;
+        let completedClass = "";
+        let progressMax = 1;
+
+        // حساب نسبة الإنجاز فقط إذا الهدف محدد ومبلغ الهدف أكبر من صفر
+        if (target && target > 0) {
+          percentage = Math.min(100, Math.round((saved / target) * 100));
+          progressMax = target;
+          if (percentage === 100) completedClass = "completed";
+        }
+
+        return `
+          <div class="goal-box ${completedClass}" onclick="goToGoalDetails(${index})">
+            <h3>${goal.name}</h3>
+            <p>${saved} / ${target && target > 0 ? target + ' ريال' : 'غير محدد'}</p>
+            <progress value="${target && target > 0 ? saved : 0}" max="${progressMax}"></progress>
+            <p>${target && target > 0 ? percentage + '% مكتمل' : 'بدون هدف محدد'}</p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function goToGoalDetails(index) {
+      localStorage.setItem("selectedGoalIndex", index);
+      window.location.href = "goal-details.html";
+    }
+
+    window.onload = loadGoals;
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول عبر نفاذ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <img src="logo.png" class="top-logo" alt="شعار حصالة">
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <img src="nafath-logo.png" alt="شعار نفاذ" class="main-logo" />
+      <h1 class="title">تسجيل الدخول عبر نفاذ</h1>
+      <p class="desc">الرجاء إدخال رقم الهوية/الإقامة ثم اضغط "التالي" للاستمرار</p>
+      <input type="text" placeholder="ادخل رقم الهوية" />
+     <button class="next-btn green" onclick="goToIncome()">التالي ←</button>
+    </div>
+  </div>
+  <script>
+  function goToIncome() {
+    window.location.href = "income.html"; // تأكدي أن اسم الملف صحيح وموجود
+  }
+</script>
+
+
+  <button class="support-btn">الدعم</button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحليلك المالي – حصالة</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="decorative-bg"></div>
+
+  <div class="container">
+    <h1>تحليلك المالي</h1>
+
+    <div class="personality-card">
+      <i class="fa-solid fa-user-circle profile-icon"></i>
+      <h2 class="personality-title">المسرف الحالم</h2>
+      <p class="personality-subtitle">
+        شخصيتك لهذا الشهر
+        <span class="info-button" onclick="toggleDescription()">!</span>
+      </p>
+      <p id="personality-description" style="display: none; font-size: 14px; color: #333;">
+        تحب تحقيق أهدافك، لكنك أحياناً تميل للإنفاق العاطفي، حاول تحقيق التوازن هذا الشهر!
+      </p>
+    </div>
+
+    <div class="gauge-card">
+      <div class="gauge-wrapper">
+        <svg viewBox="0 0 200 100" class="gauge">
+          <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#d3d9dd" stroke-width="15" />
+          <path d="M 20 100 A 80 80 0 0 1 140 25" fill="none" stroke="#1C2A49" stroke-width="15" />
+        </svg>
+        <div class="gauge-label">60%</div>
+      </div>
+      <p class="gauge-text">خطوة جميلة نحو هدفك، لكن الصرف لا يزال يسبق الادخار!<br>خلّ وعيك المالي يسبق رغباتك</p>
+      <a href="spending-analysis.html" class="report-btn">التقرير الشهري</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
+    <a href="analysis.html" class="active"><i class="fa-solid fa-chart-line"></i><span>التحليل</span></a>
+    <a href="goal.html"><i class="fa-solid fa-bullseye"></i><span>أهدافي</span></a>
+    <a href="profile.html"><i class="fa-solid fa-user"></i><span>ملفي</span></a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

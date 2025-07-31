@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحليل الإنفاق – حصالة</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <!-- زر الرجوع -->
+    <div class="back-button">
+      <a href="analysis.html" title="العودة للتحليل"><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <h1 class="page-title">تحليل الإنفاق</h1>
+
+    <div class="gauge-card">
+      <div class="gauge-wrapper">
+        <svg viewBox="0 0 200 100" class="gauge">
+          <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#d3d9dd" stroke-width="15" />
+          <path d="M 20 100 A 80 80 0 0 1 140 25" fill="none" stroke="#1C2A49" stroke-width="15" />
+        </svg>
+        <div class="gauge-label">60%</div>
+      </div>
+
+      <p class="gauge-text">أهدافك تلوح في الأفق!</p>
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar" data-height="160px"><span>أساسيات</span></div>
+      <div class="bar" data-height="120px"><span>ترفيه</span></div>
+      <div class="bar" data-height="100px"><span>ادخار</span></div>
+    </div>
+
+    <div class="spending-tip">
+      <i class="fa-solid fa-bell"></i>
+      <span>نقترح تقليل الإنفاق على الترفيه بنسبة 10٪ لزيادة تحقيق هدفك.</span>
+    </div>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
+    <a href="analysis.html" class="active"><i class="fa-solid fa-chart-line"></i><span>التحليل</span></a>
+    <a href="goals.html"><i class="fa-solid fa-bullseye"></i><span>أهدافي</span></a>
+    <a href="profile.html"><i class="fa-solid fa-user"></i><span>ملفي</span></a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الملف الشخصي – حصالة</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="decorative-bg"></div>
+
+  <div class="container">
+    <h1><i class="fa-solid fa-user"></i> الملف الشخصي</h1>
+
+    <div class="card" id="infoCard">
+      <p><strong>الاسم:</strong> لين محمد</p>
+      <p><strong>البريد الإلكتروني:</strong> <span id="email">leen@example.com</span></p>
+      <p><strong>العمر:</strong> 22 سنة</p>
+      <p><strong>المدينة:</strong> الرياض</p>
+      <p><strong>اللقب المالي:</strong> المسرف الحالم</p>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-start;">
+        <button class="btn" onclick="showEditForm()">تعديل المعلومات <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></button>
+        <button class="btn" onclick="toggleLanguage()" title="تغيير اللغة">
+          <i class="fa-solid fa-globe"style="color: #ffffff;"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="card" id="financeCard">
+      <h3><i class="fa-solid fa-star"></i> بطاقتك المالية</h3>
+      <p>        تحب تحقيق أهدافك، لكنك أحياناً تميل للإنفاق العاطفي، حاول تحقيق التوازن هذا الشهر!
+</p>
+    </div>
+
+    <div class="edit-form" id="editForm">
+      <input type="email" id="newEmail" placeholder="البريد الإلكتروني الجديد" />
+      <input type="password" id="newPassword" placeholder="كلمة المرور الجديدة" />
+      <button class="btn" onclick="saveChanges()">حفظ التعديلات</button>
+    </div>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav">
+    <a href="index.html"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
+    <a href="analysis.html"><i class="fa-solid fa-chart-line"></i><span>التحليل</span></a>
+    <a href="goal.html"><i class="fa-solid fa-bullseye"></i><span>أهدافي</span></a>
+    <a href="profile.html" class="active"><i class="fa-solid fa-user"></i><span>ملفي</span></a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
