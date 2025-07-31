@@ -164,7 +164,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-<script src="//code.tidio.co/syfglhw644avucp27nknohc68m33713h.js" async></script>
-</body>
+
 
 
