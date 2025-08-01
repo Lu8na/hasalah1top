@@ -165,5 +165,84 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+<script src="//code.tidio.co/syfglhw644avucp27nknohc68m33713h.js" async></script>
+
+
+
+
+
+
+async function markComplete() {
+  const index = localStorage.getItem("selectedGoalIndex");
+  const goals = JSON.parse(localStorage.getItem("goals") || "[]");
+  const goal = goals[index];
+
+  if (!goal) return alert("لا يوجد هدف.");
+
+  const salary = Number(localStorage.getItem("userSalary") || 0);
+  const duration = Number(goal.duration || 1);
+  const monthly = Number(goal.amount) / duration;
+
+  if (!goal.saved) goal.saved = 0;
+  if (!goal.monthsCompleted) goal.monthsCompleted = 0;
+
+  // تحقق من الراتب قبل التقدم
+  if (salary < monthly) {
+    alert(`⚠️ راتبك لا يغطي مبلغ الادخار الشهري المطلوب (${monthly.toFixed(2)} ريال).`);
+    return;
+  }
+
+  if (goal.monthsCompleted >= duration || goal.saved >= goal.amount) {
+    goal.saved = goal.amount;
+    alert("🎉 تم تحقيق الهدف بالكامل!");
+  } else {
+    goal.monthsCompleted += 1;
+    goal.saved += monthly;
+    if (goal.saved > goal.amount) goal.saved = goal.amount;
+
+    // نسبة الادخار من الراتب
+    const savingPercent = (monthly / salary) * 100;
+    alert(`✅ تمت إضافة ${monthly.toFixed(2)} ريال. نسبة الادخار من راتبك: ${savingPercent.toFixed(1)}%`);
+  }
+
+  // حفظ التعديلات
+  goals[index] = goal;
+  localStorage.setItem("goals", JSON.stringify(goals));
+  displayDetails();
+
+  // 🧠 إرسال البيانات إلى الذكاء الاصطناعي
+  try {
+    const response = await fetch('/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        saved: goal.saved,
+        amount: goal.amount,
+        monthsCompleted: goal.monthsCompleted,
+        duration: goal.duration
+      })
+    });
+
+    const result = await response.json();
+    alert(result.status);
+  } catch (error) {
+    console.error("فشل الاتصال بالخادم:", error);
+  }
+}
+
+
+function saveSalary() {
+  const salaryInput = document.getElementById("salaryInput").value;
+  const salary = Number(salaryInput);
+  if (!salary || salary <= 0) {
+    alert("يرجى إدخال راتب شهري صالح");
+    return;
+  }
+  localStorage.setItem("userSalary", salary);
+}
+
+
 
 
