@@ -641,24 +641,7 @@ body {
   border-bottom: none;
 }
 
-/* زر مستشار أمد */
-.advisor-button {
-  position: fixed;
-  bottom: 75px;
-  right: 16px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 999;
-}
+
 
 .advisor-button.left {
   right: auto;
@@ -885,6 +868,7 @@ input[type="text"] {
 }
 
  
+
 
 
 
