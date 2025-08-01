@@ -50,55 +50,6 @@
   </div>
 
   <script src="script.js"></script>
-  <script>
-function updateSavingsBar() {
-  const goals = JSON.parse(localStorage.getItem("goals") || "[]");
-  const salary = Number(localStorage.getItem("userSalary") || 0);
 
-  if (goals.length === 0 || salary === 0) return; // لا بيانات
-
-  // حساب مجموع المدخرات والمبالغ المطلوبة
-  let totalSaved = 0;
-  let totalAmount = 0;
-  let totalProgressPercent = 0;
-
-  goals.forEach(goal => {
-    const saved = Number(goal.saved || 0);
-    const amount = Number(goal.amount || 0);
-
-    totalSaved += saved;
-    totalAmount += amount;
-
-    if (amount > 0) {
-      totalProgressPercent += (saved / amount);
-    }
-  });
-
-  const avgProgressPercent = totalProgressPercent / goals.length; // متوسط نسبة التقدم
-
-  // نسبة الادخار مقارنة بالراتب (مثلاً نأخذ نسبة الادخار الشهرية من الراتب)
-  // لكن هنا نستخدم التقدم الفعلي للادخار (totalSaved / totalAmount)
-  const savingsRatio = totalAmount > 0 ? totalSaved / totalAmount : 0;
-
-  // تحويل النسبة إلى ارتفاع (مثلاً أقصى ارتفاع 160px كما في الستايل)
-  const maxHeightPx = 160;
-  const barHeight = Math.min(savingsRatio, 1) * maxHeightPx; // نسبة لا تزيد عن 1
-
-  // تحديث ارتفاع العمود
-  const savingBar = document.querySelector('.bar[data-height]');
-  if (savingBar) {
-    savingBar.style.height = `${barHeight}px`;
-  }
-
-  // تحديث نص العمود لعرض النسبة
-  savingBar.querySelector('span').textContent = `ادخار (${(savingsRatio * 100).toFixed(1)}%)`;
-}
-
-// استدعاء الدالة عند تحميل الصفحة
-window.onload = function() {
-  updateSavingsBar();
-};
-
-</script>
 </body>
 </html>
