@@ -871,21 +871,25 @@ input[type="text"] {
   accent-color: #20c997;
 }
 
- .income {
-  width: 80%;
-  max-width: 300px;
-  padding: 12px;
-  margin: 20px auto;
-  font-size: 16px;
+
+
+
+.center-screen {
+  display: flex;
+  justify-content: center;  /* توسيط أفقي */
+  align-items: center;      /* توسيط عمودي */
+  height: 100vh;
   text-align: center;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  display: block;
 }
 
-
-
-
+/* توسيط النص داخل حقل الإدخال */
+input[type="text"].income {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 16px;
+  display: block;
+}
 
 
 
