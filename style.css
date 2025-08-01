@@ -734,19 +734,10 @@ input[type="text"] {
 }
 
 .next-btn {
-  width: 100%;
-  max-width: 300px;
-  background-color: #0D1C2E;
-  color: white;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto 12px;
-  text-align: center;
-  font-weight: bold;
+width: 100%;  background-color: #0D1C2E;
+  color: white;  padding: 12px;
+  font-size: 16px;  border: none;
+  border-radius: 8px;  cursor: pointer;
 }
 
 .next-btn.green {
