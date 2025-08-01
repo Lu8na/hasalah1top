@@ -1,108 +1,33 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الملف الشخصي – حصالة</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإشعارات – حصالة</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    .edit-form {
-      margin-top: 20px;
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      padding-bottom: 100px;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
 <body>
-  <div class="decorative-bg"></div>
 
+  <!-- الشريط العلوي -->
+  <div class="top-bar">
+    <span class="username">الإشعارات</span>
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+  </div>
+
+  <!-- قائمة الإشعارات -->
   <div class="container">
-    <h1><i class="fa-solid fa-user"></i> الملف الشخصي</h1>
-
-    <div class="card" id="infoCard">
-      <p><strong>الاسم:</strong> لين محمد</p>
-      <p><strong>البريد الإلكتروني:</strong> <span id="email">leen@example.com</span></p>
-      <p><strong>العمر:</strong> 22 سنة</p>
-      <p><strong>المدينة:</strong> الرياض</p>
-      <p><strong>اللقب المالي:</strong> المسرف الحالم</p>
-
-      <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
-        <button class="btn" id="editInfoBtn">
-          تعديل المعلومات <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
-        </button>
-        <button class="btn" id="editIncomeBtn" title="تعديل الدخل">
-          تعديل الدخل الشهري <i class="fa-solid fa-sack-dollar" style="color: #ffffff;"></i>
-        </button>
-      </div>
+    <div class="card">
+      <p>🚨 لا تنسَ تحدي الأسبوع!</p>
     </div>
-
-    <div class="card" id="financeCard">
-      <h3><i class="fa-solid fa-star"></i> بطاقتك المالية</h3>
-      <p>تحب تحقيق أهدافك، لكنك أحياناً تميل للإنفاق العاطفي، حاول تحقيق التوازن هذا الشهر!</p>
+    <div class="card">
+      <p>🎯 حققت هدف الادخار بنسبة 80%</p>
     </div>
-
-    <!-- تعديل الإيميل وكلمة المرور -->
-    <div class="edit-form" id="editForm">
-      <input type="email" id="newEmail" placeholder="البريد الإلكتروني الجديد" />
-      <input type="password" id="newPassword" placeholder="كلمة المرور الجديدة" />
-      <button class="btn" id="saveChangesBtn">حفظ التعديلات</button>
-    </div>
-
-    <!-- تعديل الدخل الشهري -->
-    <div class="edit-form" id="incomeForm">
-      <input type="number" id="newIncome" placeholder="أدخل دخلك الشهري الجديد" />
-      <button class="btn" id="saveIncomeBtn">حفظ الدخل</button>
+    <div class="card">
+      <p>📈 لديك تقرير مالي جديد جاهز للعرض</p>
     </div>
   </div>
 
-  <div class="bottom-nav" id="bottomNav">
-    <a href="index.html"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
-    <a href="analysis.html"><i class="fa-solid fa-chart-line"></i><span>التحليل</span></a>
-    <a href="goal.html"><i class="fa-solid fa-bullseye"></i><span>أهدافي</span></a>
-    <a href="profile.html" class="active"><i class="fa-solid fa-user"></i><span>ملفي</span></a>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("editInfoBtn").onclick = () => {
-        document.getElementById("editForm").style.display = "flex";
-      };
-
-      document.getElementById("editIncomeBtn").onclick = () => {
-        document.getElementById("incomeForm").style.display = "flex";
-      };
-
-      document.getElementById("saveChangesBtn").onclick = () => {
-        const email = document.getElementById("newEmail").value.trim();
-        const password = document.getElementById("newPassword").value.trim();
-        if (email && password) {
-          localStorage.setItem("userEmail", email);
-          localStorage.setItem("userPassword", password);
-          alert("تم حفظ التعديلات بنجاح!");
-          document.getElementById("email").textContent = email;
-          document.getElementById("editForm").style.display = "none";
-        } else {
-          alert("يرجى إدخال البريد الإلكتروني وكلمة المرور.");
-        }
-      };
-
-      document.getElementById("saveIncomeBtn").onclick = () => {
-        const income = document.getElementById("newIncome").value.trim();
-        if (income && !isNaN(income) && Number(income) > 0) {
-          localStorage.setItem("userSalary", income);
-          alert("تم تحديث الدخل بنجاح!");
-          document.getElementById("incomeForm").style.display = "none";
-          } else {
-          alert("يرجى إدخال مبلغ صالح.");
-        }
-      };
-    });
-  </script>
 </body>
 </html>
