@@ -868,7 +868,17 @@ input[type="text"] {
   accent-color: #20c997;
 }
 
- 
+ .income {
+  width: 80%;
+  max-width: 300px;
+  padding: 12px;
+  margin: 20px auto;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  display: block;
+}
 
 
 
