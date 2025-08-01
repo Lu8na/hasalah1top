@@ -5,98 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تسجيل الدخول عبر نفاذ</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background-color: #FDF1ED;
-      color: #0D1C2E;
-      margin: 0;
-      padding: 0;
-      max-width: 430px;
-      margin: auto;
-    }
-
-    .top-bar {
-      background-color: #fff;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .top-logo {
-      height: 40px;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    .card {
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .main-logo {
-      width: 90px;
-      margin-bottom: 15px;
-    }
-
-    .title {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .desc {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .income {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      text-align: center; /* هذا يجعل النص داخل الخانة في الوسط */
-    }
-
-    .next-btn {
-      background-color: #0D1C2E;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .next-btn:hover {
-      background-color: #1a2a3f;
-    }
-
-    .support-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #ff7693;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      font-size: 14px;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <div class="top-bar">
     <img src="logo.png" class="top-logo" alt="شعار حصالة">
   </div>
@@ -106,19 +17,18 @@
       <img src="nafath-logo.png" alt="شعار نفاذ" class="main-logo" />
       <h1 class="title">تسجيل الدخول عبر نفاذ</h1>
       <p class="desc">الرجاء إدخال رقم الهوية/الإقامة ثم اضغط "التالي" للاستمرار</p>
-
-      <input type="text" class="income" placeholder="ادخل رقم الهوية" />
-      <button class="next-btn" onclick="goToIncome()">التالي ←</button>
+  
+<input type="text" class="income" placeholder="ادخل رقم الهوية" />
+     <button class="next-btn green" onclick="goToIncome()">التالي ←</button>
     </div>
   </div>
+  <script>
+  function goToIncome() {
+    window.location.href = "income.html"; // تأكدي أن اسم الملف صحيح وموجود
+  }
+</script>
+
 
   <button class="support-btn">الدعم</button>
-
-  <script>
-    function goToIncome() {
-      window.location.href = "income.html"; // تأكد من وجود هذا الملف
-    }
-  </script>
-
 </body>
 </html>
