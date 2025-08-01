@@ -602,9 +602,10 @@ body {
 
 .bottom-nav a.active {
   font-weight: bold;
-  color: #ff7693;
-}
+  color: #f3bfb7;
+    
 
+}
 /* لوحة الإشعارات */
 .notifications-panel {
   position: fixed;
