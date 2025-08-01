@@ -233,7 +233,6 @@ async function markComplete() {
 }
 
 
-
 function saveSalary() {
   const salaryInput = document.getElementById("salaryInput").value;
   const salary = Number(salaryInput);
@@ -243,6 +242,7 @@ function saveSalary() {
   }
   localStorage.setItem("userSalary", salary);
 }
+
 
 
 
