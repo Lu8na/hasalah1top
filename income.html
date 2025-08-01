@@ -15,20 +15,28 @@
   <div class="container">
     <div class="card">
       <h1 class="title">الرجاء إدخال دخلك الشهري</h1>
-      <input type="text" placeholder="ادخل متوسط دخلك الشهري" />
-<a href="index.html" class="next-btn" onclick="saveSalary()" style="...">التالي ←</a>
+      <input type="text" id="salary" placeholder="ادخل متوسط دخلك الشهري" />
+
+      <a href="index.html" class="next-btn" onclick="return saveSalary()">التالي ←</a>
 
       <p class="note">⚠️ تنويه: كافة البيانات المُدخلة تُحفظ بسرية تامة وتُستخدم لأغراض التحليل فقط</p>
     </div>
-
   </div>
-  
-
-  
 
   <button class="support-btn">الدعم</button>
-  <script src="script.js"></script>
+
+  <script>
+    function saveSalary() {
+      const salaryValue = document.getElementById("salary").value.trim();
+      if (salaryValue && !isNaN(salaryValue) && Number(salaryValue) > 0) {
+        localStorage.setItem("userSalary", salaryValue);
+        return true; // يسمح بالتنقل إلى index.html
+      } else {
+        alert("يرجى إدخال رقم صالح للراتب.");
+        return false; // يمنع الانتقال
+      }
+    }
+  </script>
 </body>
 </html>
-
 
