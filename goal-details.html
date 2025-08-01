@@ -109,17 +109,30 @@
     function markComplete() {
       const salary = Number(localStorage.getItem("userSalary") || 0);
       const duration = Number(goal.duration || 1);
-      const monthlySuggested = goal.amount / duration;
+      const targetAmount = Number(goal.amount || 0);
+      const savedAmount = Number(goal.saved || 0);
+      const monthlySuggested = targetAmount / duration;
 
-      if (salary >= monthlySuggested) {
-        alert(`خطة ممتازة! تحتاج ${monthlySuggested.toFixed(2)} ريال شهريًا لتحقيق هدفك.`);
-      } else {
-        alert(`⚠️ راتبك الحالي قد لا يغطي ${monthlySuggested.toFixed(2)} ريال شهريًا لمدة ${duration} أشهر.`);
+      // حسبة النسبة من الراتب
+      const savingPercent = (monthlySuggested / salary) * 100;
+
+      if (salary < monthlySuggested) {
+        alert(`⚠️ راتبك لا يغطي ${monthlySuggested.toFixed(2)} ريال شهريًا.`);
+        return;
       }
 
-      goal.saved = goal.amount;
+      // نضيف دفعة جديدة
+      const newSaved = savedAmount + monthlySuggested;
+      goal.saved = newSaved > targetAmount ? targetAmount : newSaved;
+
+      // تحديث التخزين
+      goals[index] = goal;
       localStorage.setItem("goals", JSON.stringify(goals));
-      window.location.reload();
+
+      // تحديث الواجهة
+      displayDetails();
+
+      alert(`تمت إضافة ${monthlySuggested.toFixed(2)} ريال. نسبة الادخار من راتبك: ${savingPercent.toFixed(1)}%`);
     }
 
     function deleteGoal() {
@@ -135,7 +148,6 @@
 
       const percentage = goal.amount ? Math.round((goal.saved / goal.amount) * 100) : 0;
 
-      // تنسيق التواريخ لتكون بصيغة YYYY-MM-DD للعرض في حقل input date
       function formatDateForInput(dateStr) {
         if (!dateStr) return "";
         const d = new Date(dateStr);
@@ -171,6 +183,6 @@
 
     displayDetails();
   </script>
-
 </body>
 </html>
+
